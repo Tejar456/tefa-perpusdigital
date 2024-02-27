@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="container-fluid p-5">
     <div class="row">
       <div class="col-lg-12">
         <h2 class="text-center my-4">ISI BUKU KUNJUNGAN</h2>
@@ -7,7 +7,6 @@
           <div class="mb-3">
             <input type="text" class="form-control form-control-lg radius" placeholder="NAMA">
           </div>
-
           <div class="mb-3">
             <select class="form-control form-control-lg form-select radius">
               <option value="">KEANGGOTAAN</option>
@@ -17,7 +16,6 @@
               <option value="Umum">Umum</option>
             </select>
           </div>
-
           <div class="mb-3">
             <div class="row">
               <div class="col-md-4">
@@ -27,8 +25,7 @@
                   <option value="XI">XI</option>
                   <option value="XII">XII</option>
                 </select>
-              </div>
-              
+              </div>            
               <div class="col-md-4">
                 <select class="form-control form-control-lg form-select radius mb-2">
                   <option value="">JURUSAN</option>
@@ -39,7 +36,6 @@
                   <option value="TOI">TOI</option>
                 </select>
               </div>
-
               <div class="col-md-4">
                 <select class="form-control form-control-lg form-select radius mb-2">
                   <option value="">KELAS</option>
@@ -51,7 +47,6 @@
               </div>
             </div>
           </div>
-
           <div class="mb-3">
             <select class="form-control form-control-lg form-select radius">
               <option value="">KEPERLUAN</option>
@@ -61,8 +56,12 @@
             </select>
           </div>
           <div class="tombol">
-            <button type="submit" class="btn btn-lg radius">KIRIM</button>
-            <button type="submit" class="btn ms-3 btn-lg radius">KEMBALI</button>
+            <nuxt-link to="/pengunjung/">
+              <button type="submit" class="btn btn-lg radius">KIRIM</button>
+            </nuxt-link>
+            <nuxt-link to="/">
+              <button type="submit" class="btn btn-lg radius kembali">KEMBALI</button>
+            </nuxt-link>
           </div>
         </form>
       </div>
@@ -90,4 +89,16 @@ button {
   color: #fff;
 }
 
+button:hover {
+  border: 1px solid #000;
+  background-color: #fff;
+  color: #3270d2;
+}
+
+.kembali {
+  position: absolute;
+  bottom: 30px;
+  right: 30px;
+  border-radius: 20px;
+}
 </style>

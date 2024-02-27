@@ -1,29 +1,26 @@
 <template>
   <div class="container-fluid">
     <div class="row my-5 d-flex justify-content-around">
-
       <div class="col-lg-6 kartu">
         <nuxt-link to="/pengunjung/tambah">
           <div class="card bg-pengunjung rounded-5">
             <div class="card-body">
-              <h2>Pengunjung</h2>
+              <h4>Pengunjung</h4>
             </div>
           </div>
         </nuxt-link>
       </div>
-      
       <div class="col-lg-6 kartu">
         <nuxt-link to="/buku">
           <div class="card bg-buku rounded-5">
             <div class="card-body">
-              <h2>Pengunjung</h2>
+              <h4>Cari Buku</h4>
             </div>
           </div>
         </nuxt-link>
       </div>
   </div>
     <div class="row my-5 d-flex justify-content-around">
-
       <div class="col-lg-6 kartu">
           <div class="card c2 rounded-5">
             <div class="card-body text">
@@ -32,7 +29,6 @@
             </div>
           </div>
       </div>
-
       <div class="col-lg-6 kartu">
           <div class="card c2 rounded-5">
             <div class="card-body text">
@@ -41,7 +37,6 @@
             </div>
           </div>
       </div>
-
     </div>
   </div>
 </template>
@@ -64,6 +59,13 @@
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
+}
+
+.card-body > h4 {
+  color: #fff;
+  position: absolute;
+  bottom: 5px;
+  right: 15px;
 }
 
 .kartu {
