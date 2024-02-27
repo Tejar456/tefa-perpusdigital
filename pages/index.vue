@@ -24,16 +24,16 @@
       <div class="col-lg-6 kartu">
           <div class="card c2 rounded-5">
             <div class="card-body text">
-              <h1>3</h1>
-              <h1>Pengunjung</h1>
+              <h1 class="no">3</h1>
+              <h3 class="pt-4">Pengunjung</h3>
             </div>
           </div>
       </div>
       <div class="col-lg-6 kartu">
           <div class="card c2 rounded-5">
             <div class="card-body text">
-              <h1>180</h1>
-              <h1>Buku</h1>
+              <h1 class="no">180</h1>
+              <h3 class="pt-4">Buku</h3>
             </div>
           </div>
       </div>
@@ -44,7 +44,7 @@
 <style scoped>
 .card {
   height: 250px;
-  box-shadow: 1px 1px 10px #3333;
+  box-shadow: 1px 1px 10px #17161633;
 }
 
 .card.bg-pengunjung {
@@ -80,5 +80,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.no {
+  font-size: 70px;
 }
 </style>

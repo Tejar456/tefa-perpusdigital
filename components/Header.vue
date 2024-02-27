@@ -20,7 +20,7 @@
     align-items: center;
     width: 100%;
     height: 150px;
-    background-color: #3270d2;
+    background-color: #265CB5;
     color: #fff;
   }
 

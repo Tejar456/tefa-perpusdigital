@@ -77,7 +77,7 @@
 
 button {
   border: 1px solid #000;
-  background-color: #3270d2;
+  background-color: #265CB5;
   color: #fff;
   position: absolute;
   bottom: 30px;
@@ -88,6 +88,6 @@ button {
 button:hover {
   border: 1px solid #000;
   background-color: #fff;
-  color: #3270d2;
+  color: #265CB5;
 }
 </style>
