@@ -96,7 +96,7 @@ button:hover {
 }
 
 .kembali {
-  position: absolute;
+  position: fixed;
   bottom: 30px;
   right: 30px;
   border-radius: 20px;

@@ -1,5 +1,5 @@
 <template>
-  <div class="container-fluid">
+  <div class="container-fluid font">
     <div class="row my-5 d-flex justify-content-around">
       <div class="col-lg-6 kartu">
         <nuxt-link to="/pengunjung/tambah">
@@ -19,7 +19,10 @@
           </div>
         </nuxt-link>
       </div>
-  </div>
+    </div>
+    <div class="statistik">
+      <h1>STATISTIK</h1>
+    </div>
     <div class="row my-5 d-flex justify-content-around">
       <div class="col-lg-6 kartu">
           <div class="card c2 rounded-5">
@@ -38,8 +41,18 @@
           </div>
       </div>
     </div>
+    
+    <div class="row">
+      <div class="chart">
+        <chart-statistik />
+      </div>
+    </div>
   </div>
 </template>
+
+<script setup>
+useHead({ title: "Home / Perpus Digital" })
+</script>
 
 <style scoped>
 .card {
@@ -68,6 +81,10 @@
   right: 15px;
 }
 
+.statistik {
+  margin-left: 100px;
+}
+
 .kartu {
   width: 40%;
 }
@@ -85,4 +102,11 @@
 .no {
   font-size: 70px;
 }
+.chart {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 100px;
+}
 </style>
+
