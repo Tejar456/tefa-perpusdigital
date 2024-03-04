@@ -25,25 +25,24 @@
     </div>
     <div class="row my-5 d-flex justify-content-around">
       <div class="col-lg-6 kartu">
-          <div class="card c2 rounded-5">
-            <div class="card-body text">
-              <h1 class="no">3</h1>
-              <h3 class="pt-4">Pengunjung</h3>
-            </div>
+        <div class="card c2 rounded-5">
+          <div class="card-body text">
+            <h1 class="no">3</h1>
+            <h3 class="pt-4">Pengunjung</h3>
           </div>
+        </div>
       </div>
       <div class="col-lg-6 kartu">
-          <div class="card c2 rounded-5">
-            <div class="card-body text">
-              <h1 class="no">180</h1>
-              <h3 class="pt-4">Buku</h3>
-            </div>
+        <div class="card c2 rounded-5">
+          <div class="card-body text">
+            <h1 class="no">180</h1>
+            <h3 class="pt-4">Buku</h3>
           </div>
+        </div>
       </div>
     </div>
-    
-    <div class="row">
-      <div class="chart">
+    <div class="container">
+      <div class="row">
         <chart-statistik />
       </div>
     </div>
@@ -74,7 +73,7 @@ useHead({ title: "Home / Perpus Digital" })
   background-size: cover;
 }
 
-.card-body > h4 {
+.card-body>h4 {
   color: #fff;
   position: absolute;
   bottom: 5px;
@@ -101,12 +100,6 @@ useHead({ title: "Home / Perpus Digital" })
 
 .no {
   font-size: 70px;
-}
-.chart {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 100px;
 }
 </style>
 

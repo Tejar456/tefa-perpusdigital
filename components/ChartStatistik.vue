@@ -6,16 +6,16 @@
 </template>
 
 <script setup lang="ts">
-import Chart from 'chart.js/auto';
+import Chart, { type ChartConfiguration, type ChartItem } from 'chart.js/auto';
 
 const labels = [
-    'January',
-    'February',
-    'March',
-    'April',
-    'May',
-    'June',
-  ];
+  'January',
+  'February',
+  'March',
+  'April',
+  'May',
+  'June',
+];
 
 const data = {
   labels: labels,
@@ -27,15 +27,16 @@ const data = {
   }]
 };
 
-const config = {
+const config: ChartConfiguration = {
   type: 'bar',
   data: data,
   options: {}
 };
 
 onMounted(() => {
-  const myChart = new Chart(
-    document.getElementById('myChart'),
+  const canvasTag = <ChartItem>document.getElementById('myChart')
+  new Chart(
+    canvasTag,
     config
   );
 })
