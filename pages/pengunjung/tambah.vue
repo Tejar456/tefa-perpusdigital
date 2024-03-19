@@ -3,23 +3,24 @@
     <div class="row">
       <div class="col-lg-12">
         <h2 class="text-center my-4">ISI BUKU KUNJUNGAN</h2>
-        <form>
+        <form @submit.prevent="kirimData">
           <div class="mb-3">
-            <input type="text" class="form-control form-control-lg radius" placeholder="NAMA">
+            <input v-model="form.nama" type="text" class="form-control form-control-lg radius" placeholder="NAMA">
           </div>
           <div class="mb-3">
-            <select class="form-control form-control-lg form-select radius">
+            <select v-model="form.keanggotaan" class="form-control form-control-lg form-select radius">
               <option value="">KEANGGOTAAN</option>
-              <option value="Siswa">Siswa</option>
+              <option v-for="(member, i) in memebers" :key="i" :value="member.id">({ member.nama })</option>
+              <!-- <option value="Siswa">Siswa</option>
               <option value="Guru">Guru</option>
               <option value="Staf">Staf</option>
-              <option value="Umum">Umum</option>
+              <option value="Umum">Umum</option> -->
             </select>
           </div>
           <div class="mb-3">
             <div class="row">
               <div class="col-md-4">
-                <select class="form-control form-control-lg form-select radius mb-2">
+                <select v-model="form.tingkat" class="form-control form-control-lg form-select radius mb-2">
                   <option value="">TINGKAT</option>
                   <option value="X">X</option>
                   <option value="XI">XI</option>
@@ -27,7 +28,7 @@
                 </select>
               </div>            
               <div class="col-md-4">
-                <select class="form-control form-control-lg form-select radius mb-2">
+                <select v-model="form.jurusan" class="form-control form-control-lg form-select radius mb-2">
                   <option value="">JURUSAN</option>
                   <option value="PPLG">PPLG</option>
                   <option value="TJKT">TJKT</option>
@@ -37,7 +38,7 @@
                 </select>
               </div>
               <div class="col-md-4">
-                <select class="form-control form-control-lg form-select radius mb-2">
+                <select v-model="form.kelas" class="form-control form-control-lg form-select radius mb-2">
                   <option value="">KELAS</option>
                   <option value="1">1</option>
                   <option value="2">2</option>
@@ -48,11 +49,12 @@
             </div>
           </div>
           <div class="mb-3">
-            <select class="form-control form-control-lg form-select radius">
+            <select v-model="form.keperluan" class="form-control form-control-lg form-select radius">
               <option value="">KEPERLUAN</option>
-              <option value="Baca Buku">Baca Buku</option>
+              <option v-for="(item, i) in objectives" :key="i" :value="item.id">({ item.nama })</option>
+              <!-- <option value="Baca Buku">Baca Buku</option>
               <option value="Pinjam Buku">Pinjam Buku</option>
-              <option value="StaKembalikan Bukuf">Kembalikan Buku</option>
+              <option value="StaKembalikan Bukuf">Kembalikan Buku</option> -->
             </select>
           </div>
           <div class="tombol">
@@ -102,3 +104,39 @@ button:hover {
   border-radius: 20px;
 }
 </style>
+
+<script setup>
+const supabase = useSupabaseClient()
+
+const memebers = ref([])
+const objectives = ref([])
+
+const form = ref({
+  nama: "",
+  keanggotaan: "",
+  tingkat: "",
+  jurusan: "",
+  kelas: "",
+  keperluan: "",
+})
+
+const kirimData = async () => {
+  const { error } = await supabase.from ('pengunjung').insert([form.value])
+  if(!error) navigateTo('/pengunjung')
+}
+
+const getKeanggotan = async () => {
+  const {data, error} = await supabase.from('keanggotaan').select('*')
+  if(data) memebers.value = data
+}
+
+const getKeperluan = async () => {
+  const {data,error} = await supabase.from('keperluan').select('*')
+  if(data) objectives.value = data
+}
+
+onMounted(() => {
+  getKeanggotan()
+  getKeperluan()
+})
+</script>

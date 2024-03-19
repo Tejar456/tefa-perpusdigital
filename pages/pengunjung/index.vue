@@ -18,12 +18,12 @@
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>1</td>
-              <td>Tejar Maulana</td>
-              <td>Siswa</td>
-              <td>26 Februari 2024</td>
-              <td>Baca Buku</td>
+            <tr v-for="(visitor,i) in visitors" :key="i">
+              <td>{{ i+1 }}.</td>
+              <td>{{ visitor.nama }}</td>
+              <td>{{ visitor.keanggotaan.nama }}</td>
+              <td>{{ visitor.tanggal }}, {{ visitor.waktu }}</td>
+              <td>{{ visitor.keperluan.nama }}</td>
             </tr>
           </tbody>
         </table>
@@ -52,3 +52,19 @@ button:hover {
   color: #265CB5;
 }
 </style>
+
+<script setup>
+const supabase = useSupabaseClient()
+
+const visitors = ref([])
+
+const getPengunjung = async () => {
+  const {data, error } = await supabase.from('pengunjung').select(`*, keanggotaan(*), keperluan(*)`)
+  if(data) visitors.value = data
+}
+
+onMounted (() => {
+  getPengunjung()
+})
+
+</script>

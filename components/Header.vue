@@ -42,4 +42,24 @@
     font-size: 20px;
     font-weight: 500;
   }
+  @media only screen and (max-width: 40em) {
+    .h-img {
+    margin-left: 0.8rem;
+  }
+
+  .h-img > img{
+    width: 70%;
+  }
+
+  .h-text {
+    margin-left: -1.5rem;
+    line-height: 5px;
+ ;
+  }
+
+  .t-judul {
+    font-size: 15px;
+    font-weight: 500;
+  }
+  }
 </style>
